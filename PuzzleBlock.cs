@@ -18,7 +18,7 @@ namespace PuzzleFifteen
 
         private void InitializePuzzleBlock()
         {
-            this.BackColor = Color.Orange;
+            this.BackColor = Color.Coral;
             this.Height = 80;
             this.Width = 80;
             this.Text = "0";
