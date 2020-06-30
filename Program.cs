@@ -16,7 +16,7 @@ namespace PuzzleFifteen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Puzzle());
+            Application.Run(new PuzzleArea());
         }
     }
 }

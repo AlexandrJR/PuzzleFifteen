@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PuzzleFifteen
 {
-    public partial class Puzzle : Form
+    public partial class PuzzleArea : Form
     {
-        public Puzzle()
+        public PuzzleArea()
         {
             InitializeComponent();
             InitializePuzzleArea();

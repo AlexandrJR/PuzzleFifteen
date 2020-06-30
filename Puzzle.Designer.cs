@@ -1,6 +1,6 @@
 ﻿namespace PuzzleFifteen
 {
-    partial class Puzzle
+    partial class PuzzleArea
     {
         /// <summary>
         /// Required designer variable.
