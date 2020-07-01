@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace PuzzleFifteen
         {
             this.BackColor = Color.LightCoral;
             this.Text = "Puzzle15";
-            this.ClientSize = new Size(570,570) ;
+            this.ClientSize = new Size(560,560) ;
         }
 
         private void InitializeBlocks()
@@ -42,9 +43,43 @@ namespace PuzzleFifteen
                     blockCount++;
                     block.Text = blockCount.ToString();
 
+                    if(blockCount == 16)
+                    {
+                        block.BackColor = Color.LightCoral;
+                        block.Text = string.Empty;
+                    }
+
                     this.Controls.Add(block);
+
+                    block.Click += Block_Click;
                 }
             }
+        }
+
+        private void Block_Click(object sender, EventArgs e)
+        {
+            Button block = (Button)sender;
+
+            if (block.Text == string.Empty)
+            {
+                return;
+            }
+
+
+            // Miss part: Checking the clicked button location
+
+
+            foreach(Button emptyOne in this.Controls)
+            {
+                if(emptyOne.BackColor == Color.LightCoral)
+                {
+                    emptyOne.BackColor = Color.Coral;
+                    emptyOne.Text = block.Text;
+                }
+            }
+
+            block.BackColor = Color.LightCoral;
+            block.Text = string.Empty;
         }
     }
 }
