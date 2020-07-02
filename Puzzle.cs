@@ -14,18 +14,23 @@ namespace PuzzleFifteen
 {
     public partial class PuzzleArea : Form
     {
+
+        Random rand = new Random();
         public PuzzleArea()
         {
             InitializeComponent();
             InitializePuzzleArea();
             InitializeBlocks();
+            ShuffleButton();
         }
 
         public void InitializePuzzleArea()
         {
             this.BackColor = Color.LightCoral;
             this.Text = "Puzzle15";
-            this.ClientSize = new Size(560,560) ;
+            this.ClientSize = new Size(560,560);
+
+            
         }
 
         private void InitializeBlocks()
@@ -94,6 +99,32 @@ namespace PuzzleFifteen
                 return false;
             }
         }
+        
+        private void ShuffleButton()
+        {
+            Button swapButton = new Button()
+            {
+                Top = 25,
+                Left = 84,
+                Size = new Size(150, 50),
+                Text = "Shuffle",
+                Font = new Font("Tahoma", 18),
+                BackColor = Color.Coral
+            };
 
+            this.Controls.Add(swapButton);
+            swapButton.Click += ShuffleButton_Click;
+        }
+
+        private void ShuffleButton_Click(object sender, EventArgs e)
+        {
+            string blockName;
+            for (int i = 0; i < 100; i++)
+            {
+                blockName = "Block" + rand.Next(1, 16);
+                Button block = (Button)this.Controls[blockName];
+                SwapBlocks(block);
+            }
+        }
     }
 }
